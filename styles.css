@@ -1,1 +1,43 @@
-// CSS
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap');
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    font-family: 'Noto Sans JP', sans-serif;
+    overflow: hidden;
+}
+
+.main {
+    position: relative;
+    background: url('./img/fondo.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+}
+
+.secondary {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding-top: 150px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.secondary h1 {
+    color: #f3f3f3;
+    font-size: 4rem;
+}
