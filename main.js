@@ -29,3 +29,25 @@ console.log(minutes)
 // Calculamos los segundos restantes
 const seconds = Math.floor(timeRemaining % 60)
 console.log(seconds)
+
+const timer = document.getElementById('timer')
+
+// Agregamos los elementos HTML al contenedor
+timer.innerHTML = `
+<div>
+  <span>${days}</span>
+  <span class="text">Días</span>
+  </div>
+  <div>
+  <span>${hours}</span>
+  <span class="text">Horas</span>
+  </div>
+  <div>
+  <span>${minutes}</span>
+  <span class="text">Minutos</span>
+  </div>
+  <div>
+  <span>${seconds}</span>
+  <span class="text">Segundos</span>
+  </div>
+  `
