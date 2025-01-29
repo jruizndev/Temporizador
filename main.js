@@ -38,22 +38,27 @@ const actualizador = setInterval(function () {
     // Obtenemos el elemento HTML donde se mostrará el contador
     const timer = document.getElementById('timer')
 
+    // Función para formatear números a dos dígitos
+    function padNumber(number) {
+        return number.toString().padStart(2, '0')
+    }
+
     // Agregamos los elementos HTML al contenedor
     timer.innerHTML = `
 <div>
-  <span>${days}</span>
+  <span>${padNumber(days)}</span>
   <span class="text">Días</span>
   </div>
   <div>
-  <span>${hours}</span>
+  <span>${padNumber(hours)}</span>
   <span class="text">Horas</span>
   </div>
   <div>
-  <span>${minutes}</span>
+  <span>${padNumber(minutes)}</span>
   <span class="text">Minutos</span>
   </div>
   <div>
-  <span>${seconds}</span>
+  <span>${padNumber(seconds)}</span>
   <span class="text">Segundos</span>
   </div>
   `
