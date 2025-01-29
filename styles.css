@@ -57,6 +57,26 @@ body {
     font-size: 1.8rem;
 }
 
+.timer-button {
+    padding: 10px 20px;
+    border: 3px solid #fb4400;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #1a1a1a, #000);
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+.timer-button:hover {
+    transform: scale(1.05);
+}
+
+.timer-button.active {
+    background: linear-gradient(135deg, #fb4400, #c93600);
+}
+
 #timer {
     display: flex;
     justify-content: center;

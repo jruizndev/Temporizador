@@ -1,12 +1,18 @@
 // Obtener la referencia al input de fecha
 const dateSelect = document.getElementById('dateSelect')
 
+// Obtener la refenrencia al botón de iniciar
+const startButton = document.getElementById('startButton')
+
+let isRunning = false // Variable para controlar si el contador está en ejecución
+
 // Función para actualizar el contador
 const actualizador = setInterval(function () {
     // Definimos el tiempo de inicio en milisegundos
-    const targetDate = dateSelect.value
-        ? new Date(dateSelect.value).getTime()
-        : new Date().getTime()
+    const targetDate =
+        dateSelect.value && isRunning
+            ? new Date(dateSelect.value).getTime()
+            : new Date().getTime()
 
     // Definimos el tiempo actual
     const now = new Date().getTime()
@@ -52,3 +58,16 @@ const actualizador = setInterval(function () {
   </div>
   `
 }, 1000)
+
+// Evento para iniciar el contador
+startButton.addEventListener('click', function () {
+    if (!dateSelect.value && !isRunning) {
+        alert('Por favor, selecciona una fecha')
+        return
+    }
+
+    isRunning = !isRunning
+    startButton.textContent = isRunning ? 'Detener' : 'Iniciar'
+    startButton.classList.toggle('active')
+    dateSelect.disabled = isRunning
+})
