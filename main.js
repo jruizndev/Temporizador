@@ -30,6 +30,7 @@ console.log(minutes)
 const seconds = Math.floor(timeRemaining % 60)
 console.log(seconds)
 
+// Obtenemos el elemento HTML donde se mostrará el contador
 const timer = document.getElementById('timer')
 
 // Agregamos los elementos HTML al contenedor
