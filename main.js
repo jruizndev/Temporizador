@@ -4,6 +4,9 @@ const dateSelect = document.getElementById('dateSelect')
 // Obtener la refenrencia al botón de iniciar
 const startButton = document.getElementById('startButton')
 
+// Obtener la referencia al elemento de audio
+const timerSound = document.getElementById('timerSound')
+
 let isRunning = false // Variable para controlar si el contador está en ejecución
 
 // Función para actualizar el contador
@@ -41,6 +44,15 @@ const actualizador = setInterval(function () {
     // Función para formatear números a dos dígitos
     function padNumber(number) {
         return number.toString().padStart(2, '0')
+    }
+
+    // Verificamos si el tiempo restante es menor o igual a cero
+    if (timeRemaining <= 0 && isRunning) {
+        isRunning = false
+        startButton.textContent = 'Iniciar'
+        startButton.classList.remove('active')
+        dateSelect.disabled = false
+        timerSound.play()
     }
 
     // Agregamos los elementos HTML al contenedor
