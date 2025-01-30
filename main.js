@@ -7,7 +7,29 @@ const startButton = document.getElementById('startButton')
 // Obtener la referencia al elemento de audio
 const timerSound = document.getElementById('timerSound')
 
-let isRunning = false // Variable para controlar si el contador está en ejecución
+// Obtener referencias para el modal
+const modal = document.getElementById('alertModal')
+const closeModal = document.getElementById('closeModal')
+const modalMessage = document.getElementById('modalMessage')
+
+// Variable para controlar si el contador está en ejecución
+let isRunning = false
+
+// Funciones para el control del modal
+function showModal(message) {
+    modalMessage.textContent = message
+    modal.style.display = 'block'
+}
+
+// Función para cerrar el modal y detener el sonido
+function closeModalAndSound() {
+    modal.style.display = 'none'
+    timerSound.pause()
+    timerSound.currentTime = 0
+}
+
+// Event listener para cerrar el modal
+closeModal.addEventListener('click', closeModalAndSound)
 
 // Función para actualizar el contador
 const actualizador = setInterval(function () {
@@ -53,11 +75,7 @@ const actualizador = setInterval(function () {
         startButton.classList.remove('active')
         dateSelect.disabled = false
         timerSound.play()
-
-        // Mostramos alerta y al cerrarla detenemos el sonido
-        alert('¡Tiempo finalizado!')
-        timerSound.pause()
-        timerSound.currentTime = 0
+        showModal('¡Tiempo finalizado!')
     }
 
     // Agregamos los elementos HTML al contenedor
@@ -84,7 +102,7 @@ const actualizador = setInterval(function () {
 // Evento para iniciar el contador
 startButton.addEventListener('click', function () {
     if (!dateSelect.value && !isRunning) {
-        alert('Por favor, selecciona una fecha')
+        showModal('Por favor, selecciona una fecha')
         return
     }
 
