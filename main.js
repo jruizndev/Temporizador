@@ -53,6 +53,11 @@ const actualizador = setInterval(function () {
         startButton.classList.remove('active')
         dateSelect.disabled = false
         timerSound.play()
+
+        // Mostramos alerta y al cerrarla detenemos el sonido
+        alert('¡Tiempo finalizado!')
+        timerSound.pause()
+        timerSound.currentTime = 0
     }
 
     // Agregamos los elementos HTML al contenedor
